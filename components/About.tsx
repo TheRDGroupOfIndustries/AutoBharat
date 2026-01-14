@@ -11,8 +11,8 @@ export function About() {
                             className="relative rounded-2xl shadow-2xl border border-gray-800 object-cover w-full h-[600px]"
                         />
                         <div className="absolute bottom-8 right-8 bg-black/60 backdrop-blur-md p-6 rounded-xl border border-white/10">
-                            <div className="text-3xl font-black text-red-600">10+</div>
-                            <div className="text-sm text-gray-400">Years of Passion</div>
+                            <div className="text-3xl font-black text-red-600">12+</div>
+                            <div className="text-sm text-gray-400">Hours of Daily Research</div>
                         </div>
                     </div>
 

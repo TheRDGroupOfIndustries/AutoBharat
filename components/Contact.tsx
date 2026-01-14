@@ -30,7 +30,7 @@ export function Contact() {
                             </div>
                             <div>
                                 <h3 className="text-xl font-bold mb-1">Location</h3>
-                                <p className="text-gray-400">Bangalore, Karnataka, India</p>
+                                <p className="text-gray-400">Varanasi & Delhi, India</p>
                             </div>
                         </div>
 
@@ -42,13 +42,13 @@ export function Contact() {
                                 <h3 className="text-xl font-bold mb-2">Follow Us</h3>
                                 <div className="flex space-x-4">
                                     <a href="#" className="h-10 w-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
-                                        <i className="ri-youtube-line"></i>
-                                    </a>
-                                    <a href="#" className="h-10 w-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
                                         <i className="ri-instagram-line"></i>
                                     </a>
                                     <a href="#" className="h-10 w-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
                                         <i className="ri-twitter-x-line"></i>
+                                    </a>
+                                    <a href="#" className="h-10 w-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
+                                        <i className="ri-facebook-line"></i>
                                     </a>
                                 </div>
                             </div>

@@ -1,6 +1,5 @@
 export function Footer() {
     const socialIcons = [
-        { iconClassName: "ri-youtube-line" },
         { iconClassName: "ri-instagram-line" },
         { iconClassName: "ri-twitter-x-line" },
         { iconClassName: "ri-facebook-line" }
