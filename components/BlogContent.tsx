@@ -9,6 +9,9 @@ interface BlogContentProps {
 }
 
 export function BlogContent({ featuredPost, otherPosts }: BlogContentProps) {
+    const sidebarPosts = otherPosts.slice(0, 3);
+    const gridPosts = otherPosts.slice(3);
+
     return (
         <section className="relative bg-[#020617] py-24 overflow-hidden">
             {/* Background Aesthetic Blobs */}
@@ -34,21 +37,29 @@ export function BlogContent({ featuredPost, otherPosts }: BlogContentProps) {
                     </motion.h2>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-                    {/* Featured Post - Takes 2 columns */}
+                {/* Primary Row: 1 Featured + 3 Sidebar */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-12">
                     <div className="lg:col-span-2">
                         {featuredPost && (
                             <BlogCard post={featuredPost} featured={true} />
                         )}
                     </div>
 
-                    {/* Sidebar / List - Takes 1 column */}
                     <div className="flex flex-col justify-start gap-8">
-                        {otherPosts.slice(0, 3).map((post: any) => (
+                        {sidebarPosts.map((post: any) => (
                             <BlogCard key={post._id || post.title} post={post} />
                         ))}
                     </div>
                 </div>
+
+                {/* Secondary Grid: Remaining Posts */}
+                {gridPosts.length > 0 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {gridPosts.map((post: any) => (
+                            <BlogCard key={post._id || post.title} post={post} />
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     );
