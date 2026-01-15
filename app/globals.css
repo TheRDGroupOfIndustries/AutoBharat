@@ -195,6 +195,7 @@
 @layer base {
   * {
     border-color: var(--border);
+    scroll-behavior: smooth;
   }
 
   body {
