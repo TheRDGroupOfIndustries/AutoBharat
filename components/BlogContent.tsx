@@ -47,7 +47,7 @@ export function BlogContent({ featuredPost, otherPosts }: BlogContentProps) {
 
                     <div className="flex flex-col justify-start gap-8">
                         {sidebarPosts.map((post: any) => (
-                            <BlogCard key={post._id || post.title} post={post} />
+                            <BlogCard key={post._id || post.title} post={post} featured={false} />
                         ))}
                     </div>
                 </div>
@@ -56,7 +56,7 @@ export function BlogContent({ featuredPost, otherPosts }: BlogContentProps) {
                 {gridPosts.length > 0 && (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {gridPosts.map((post: any) => (
-                            <BlogCard key={post._id || post.title} post={post} />
+                            <BlogCard key={post._id || post.title} post={post} featured={false} />
                         ))}
                     </div>
                 )}

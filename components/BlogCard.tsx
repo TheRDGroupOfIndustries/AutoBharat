@@ -22,7 +22,7 @@ export function BlogCard({ post, featured }: BlogCardProps) {
                 whileHover={{ scale: 1.005 }}
                 className="group relative bg-[#020617] border-2 border-blue-600/50 overflow-hidden rounded-[2rem] shadow-[0_0_50px_-10px_rgba(37,99,235,0.4)] transition-all duration-500 flex flex-col min-h-[600px] md:h-[850px]"
             >
-                <div className="relative h-[250px] md:h-[40% ] overflow-hidden border-b border-white/5">
+                <div className="relative h-[250px] md:h-[40%] overflow-hidden border-b border-white/5 ">
                     <motion.img
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.6 }}
