@@ -20,9 +20,9 @@ export function BlogCard({ post, featured }: BlogCardProps) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.005 }}
-                className="group relative bg-[#020617] border-2 border-blue-600/50 overflow-hidden rounded-[2rem] shadow-[0_0_50px_-10px_rgba(37,99,235,0.4)] transition-all duration-500 flex flex-col min-h-[600px] md:h-[850px]"
+                className="group relative bg-[#020617] border border-white/10 md:border-2 md:border-blue-600/50 overflow-hidden rounded-2xl md:rounded-[2rem] shadow-[0_0_50px_-10px_rgba(37,99,235,0.4)] transition-all duration-500 flex flex-col min-h-[220px] md:h-[850px]"
             >
-                <div className="relative h-[250px] md:h-[40%] overflow-hidden border-b border-white/5 ">
+                <div className="relative h-[140px] md:h-[40%] overflow-hidden border-b border-white/5 ">
                     <motion.img
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.6 }}
@@ -32,17 +32,20 @@ export function BlogCard({ post, featured }: BlogCardProps) {
                     />
                 </div>
 
-                <div className="p-6 md:p-8 flex flex-col justify-between flex-grow">
+                <div className="p-4 md:p-8 flex flex-col justify-between flex-grow gap-2 md:gap-0">
                     <div>
-                        <h3 className="text-2xl md:text-4xl font-black mb-4 leading-tight text-white group-hover:text-blue-400 transition-colors duration-300">
+                        <h3 className="text-base md:text-4xl font-bold md:font-black mb-0 md:mb-4 leading-tight text-white group-hover:text-blue-400 transition-colors duration-300 line-clamp-1 md:line-clamp-none">
                             {post.title}
                         </h3>
-                        <p className="text-gray-400 text-sm md:text-base line-clamp-3 md:line-clamp-4 font-medium leading-relaxed">
+                        <p className="text-gray-500 md:text-gray-400 text-[10px] md:text-base mt-1 md:mt-0 line-clamp-1 md:line-clamp-4 font-medium leading-relaxed">
                             {post.excerpt || post.description}
                         </p>
                     </div>
-                    <div className="mt-6">
-                        <a href={`/blog/${post.slug?.current}`} className="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-3.5 rounded-xl font-black text-sm transition-all duration-300 transform active:scale-95 shadow-lg shadow-red-600/20">
+                    <div className="mt-auto md:mt-6">
+                        <a href={`/blog/${post.slug?.current}`} className="hidden md:inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-3.5 rounded-xl font-black text-sm transition-all duration-300 transform active:scale-95 shadow-lg shadow-red-600/20">
+                            Read More
+                        </a>
+                        <a href={`/blog/${post.slug?.current}`} className="md:hidden text-red-500 font-bold text-sm tracking-wider hover:text-red-400 transition-colors">
                             Read More
                         </a>
                     </div>
