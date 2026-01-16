@@ -56,7 +56,7 @@ export default function BlogPostContent({ post, imageUrl }: BlogPostContentProps
 
             {/* Hero Image Section */}
             {imageUrl && (
-                <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+                <div className="relative w-full h-[45vh] md:h-[70vh] overflow-hidden">
                     <motion.img
                         initial={{ scale: 1.1, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
@@ -70,21 +70,21 @@ export default function BlogPostContent({ post, imageUrl }: BlogPostContentProps
             )}
 
             {/* Content Section */}
-            <div className="max-w-6xl mx-auto px-6 -mt-32 relative z-20 pb-24">
+            <div className="max-w-6xl mx-auto px-4 md:px-6 -mt-20 md:-mt-32 relative z-20 pb-24">
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
-                    className="bg-[#0b1120]/80 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 md:p-16 shadow-2xl"
+                    className="bg-[#0b1120]/90 md:bg-[#0b1120]/80 backdrop-blur-xl border border-white/10 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-16 shadow-2xl"
                 >
                     {/* Meta Tags */}
-                    <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-8 text-xs md:text-sm text-gray-400 font-medium">
-                        <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full">
-                            <Calendar className="w-4 h-4 text-red-500" />
+                    <motion.div variants={itemVariants} className="flex flex-wrap gap-3 md:gap-4 mb-6 md:mb-8 text-[10px] md:text-sm text-gray-400 font-medium">
+                        <div className="flex items-center gap-1.5 md:gap-2 px-2.5 py-1 bg-white/5 rounded-full">
+                            <Calendar className="w-3.5 h-3.5 text-red-500" />
                             {new Date(post.publishedAt).toLocaleDateString()}
                         </div>
                         {post.categories?.map((cat: string) => (
-                            <div key={cat} className="px-3 py-1 bg-red-500/10 text-red-400 rounded-full border border-red-500/20">
+                            <div key={cat} className="px-2.5 py-1 bg-red-500/10 text-red-400 rounded-full border border-red-500/20">
                                 {cat}
                             </div>
                         ))}
@@ -93,7 +93,7 @@ export default function BlogPostContent({ post, imageUrl }: BlogPostContentProps
                     {/* Title */}
                     <motion.h1
                         variants={itemVariants}
-                        className="text-4xl md:text-6xl font-black mb-6 leading-[1.1] tracking-tighter"
+                        className="text-3xl md:text-6xl font-black mb-4 md:mb-6 leading-tight md:leading-[1.1] tracking-tighter"
                     >
                         {post.title}
                     </motion.h1>
@@ -101,22 +101,22 @@ export default function BlogPostContent({ post, imageUrl }: BlogPostContentProps
                     {/* Excerpt */}
                     <motion.p
                         variants={itemVariants}
-                        className="text-xl md:text-2xl text-gray-300 font-medium mb-12 leading-relaxed italic border-l-4 border-red-600 pl-6"
+                        className="text-lg md:text-2xl text-gray-300 font-medium mb-8 md:mb-12 leading-relaxed italic border-l-4 border-red-600 pl-4 md:pl-6"
                     >
                         {post.excerpt}
                     </motion.p>
 
                     {/* Divider */}
-                    <motion.hr variants={itemVariants} className="border-white/10 mb-12" />
+                    <motion.hr variants={itemVariants} className="border-white/10 mb-8 md:mb-12" />
 
                     {/* Body Content */}
                     <motion.div
                         variants={itemVariants}
                         className="prose prose-invert prose-red max-w-none 
-                        prose-p:text-gray-300 prose-p:text-lg prose-p:leading-relaxed 
+                        prose-p:text-gray-300 prose-p:text-base md:prose-p:text-lg prose-p:leading-relaxed 
                         prose-headings:font-black prose-headings:tracking-tighter
                         prose-strong:text-white prose-strong:font-bold
-                        prose-img:rounded-3xl prose-img:border prose-img:border-white/10"
+                        prose-img:rounded-2xl md:prose-img:rounded-3xl prose-img:border prose-img:border-white/10"
                     >
                         <PortableText value={post.body} />
                     </motion.div>
