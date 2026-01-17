@@ -15,7 +15,22 @@ const query = `*[_type == "post" && slug.current == $slug][0] {
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    const post = await client.fetch(query, { slug });
+    let post = await client.fetch(query, { slug });
+
+    // Fallback for malformed slugs (e.g., those with spaces that got encoded)
+    if (!post) {
+        const decodedSlug = decodeURIComponent(slug);
+        post = await client.fetch(query, { slug: decodedSlug });
+
+        // Final fallback: check all posts if still not found (handles hidden characters or complex encoding)
+        if (!post) {
+            const allPosts = await client.fetch(`*[_type == "post"]{ "slug": slug.current }`);
+            const matchedSlug = allPosts.find((p: any) => p.slug === decodedSlug || p.slug === slug)?.slug;
+            if (matchedSlug) {
+                post = await client.fetch(query, { slug: matchedSlug });
+            }
+        }
+    }
 
     if (!post) {
         notFound();

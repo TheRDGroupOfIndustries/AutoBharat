@@ -41,6 +41,7 @@ export function BlogCard({ post, featured }: BlogCardProps) {
         : (post.imageUrl || "https://via.placeholder.com/600x400");
 
     const slug = post.slug?.current || '';
+    const encodedSlug = encodeURIComponent(slug);
 
     const toPlainText = (blocks: any[] = []) => {
         return blocks
@@ -57,7 +58,7 @@ export function BlogCard({ post, featured }: BlogCardProps) {
         const bodyText = toPlainText(post.body);
 
         return (
-            <Link href={`/blog/${slug}`} className="block perspective-1000">
+            <Link href={`/blog/${encodedSlug}`} className="block perspective-1000">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -112,7 +113,7 @@ export function BlogCard({ post, featured }: BlogCardProps) {
     }
 
     return (
-        <Link href={`/blog/${slug}`} className="block">
+        <Link href={`/blog/${encodedSlug}`} className="block">
             <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
